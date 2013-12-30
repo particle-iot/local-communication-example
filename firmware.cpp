@@ -7,7 +7,7 @@ void ipArrayFromString(byte ipArray[], String ipString) {
   ipArray[1] = ipString.substring(dot1 + 1, dot2).toInt();
   dot1 = ipString.indexOf('.', dot2 + 1);
   ipArray[2] = ipString.substring(dot2 + 1, dot1).toInt();
-  ipArray[3] = ipString.substring(dot1).toInt();
+  ipArray[3] = ipString.substring(dot1 + 1).toInt();
 }
 
 int connectToMyServer(String ip) {
