@@ -8,7 +8,7 @@ puts <<EOD
 OK I'm listening on port #{PORT} here at IP address #{ip}!
 Now run the following curl command in another window,
 replacing <DEVICE_ID> and <ACCESS_TOKEN>.
-curl https://api.spark.io/v1/devices/<DEVICE_ID>/connect -d access_token=<ACCESS_TOKEN> -d ip=#{ip}
+curl https://api.particle.io/v1/devices/<DEVICE_ID>/connect -d access_token=<ACCESS_TOKEN> -d ip=#{ip}
 EOD
 
 # We'll just block here until someone connects
