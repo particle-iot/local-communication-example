@@ -22,7 +22,7 @@ int connectToMyServer(String ip) {
 }
 
 void setup() {
-  Spark.function("connect", connectToMyServer);
+  Particle.function("connect", connectToMyServer);
 
   for (int pin = D0; pin <= D7; ++pin) {
     pinMode(pin, OUTPUT);
