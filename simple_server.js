@@ -19,7 +19,7 @@ for (var ifName in interfaces) {
 console.log("OK I'm listening on port " + PORT + " here at IP address " + ip + "!");
 console.log("Now run the following curl command in another window,");
 console.log("replacing <DEVICE_ID> and <ACCESS_TOKEN>.");
-console.log("curl https://api.spark.io/v1/devices/<DEVICE_ID>/connect -d access_token=<ACCESS_TOKEN> -d ip=" + ip);
+console.log("curl https://api.particle.io/v1/devices/<DEVICE_ID>/connect -d access_token=<ACCESS_TOKEN> -d ip=" + ip);
 
 var server = net.createServer(function(socket){
   console.log("Someone connected from " + socket.remoteAddress + ":" + socket.remotePort + "!");
