@@ -13,11 +13,11 @@ Run one of the local servers, either `ruby simple_server.rb` or `node simple_ser
     
     node simple_server.js
 
-4) Using [Spark Build](https://www.spark.io/build) or [Spark Dev](https://www.spark.io/dev), flash the [firmware.cpp](firmware.cpp) to your device (Core/Photon).
+4) Using [Particle Build](https://www.particle.io/build) or [Particle Dev](https://www.particle.io/dev), flash the [firmware.cpp](firmware.cpp) to your device (Core/Photon).
 
 5) Run the following command where IPADDRESS is something like `192.168.1.123`:
 
-    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/connect\
+    curl https://api.particle.io/v1/devices/0123456789abcdef01234567/connect\
      -d access_token=1234123412341234123412341234123412341234 \
      -d "args=IPADDRESS"
 
@@ -30,10 +30,10 @@ One puzzle to solve is that you don't know in advance the
 IP address of your device or of the laptop that will run the server.
 How can the device and the server discover each other?
 
-In this example, we will register a Spark function to pass the
+In this example, we will register a Particle function to pass the
 server IP address to the device.  Once we've established the
 local connection, we'll be able to control the device without
-the data going through the Spark Cloud.
+the data going through the Particle Cloud.
 
 FYI: The following example code is located here: [firmware.cpp](firmware.cpp)
 
@@ -80,8 +80,8 @@ int connectToMyServer(String ip) {
 }
 ```
 
-Here's the Spark function we're going to register.
-Like all Spark functions it takes a String parameter
+Here's the Particle function we're going to register.
+Like all Particle functions it takes a String parameter
 and returns an int.  We allocate an array of 4 bytes
 for the IP address, then call `ipArrayFromString()`
 to convert the String into an array.
@@ -93,7 +93,7 @@ newly received address! Super simple!
 
 ```C++
 void setup() {
-  Spark.function("connect", connectToMyServer);
+  Particle.function("connect", connectToMyServer);
 
   for (int pin = D0; pin <= D7; ++pin) {
     pinMode(pin, OUTPUT);
@@ -103,7 +103,7 @@ void setup() {
 
 In `setup()` we only have two jobs:
 
-* Register the Spark function
+* Register the Particle function
 * Set D0–D7 as output pins
 
 ---
